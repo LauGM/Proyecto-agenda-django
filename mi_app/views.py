@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib import messages
 from django.http import HttpResponse
 from mi_app.models import Contacto, Tarea, Nota
 from mi_app.forms import MiFormulario, MiTarea, MiNota
@@ -41,7 +42,8 @@ def crear_contacto(request):
                 email=email,
             )
             contacto.save()
-            return HttpResponse(f"Contacto creado: {contacto}")
+            messages.success(request, f"¡Nota '{contacto.nombre} {contacto.apellido}' creado con éxito!")
+            return redirect('crear-contacto')
 
     form = MiFormulario()
     return render(request, "mi_app/fromulario.html", {"form": form})
@@ -66,7 +68,8 @@ def crear_tarea(request):
                 completada=completada,
             )
             tarea.save()
-            return HttpResponse(f"Tarea creada: {tarea}")
+            messages.success(request, f"¡Tarea '{tarea.titulo}' creada con éxito!")
+            return redirect('crear-tarea')
 
    form = MiTarea()
    return render(request, "mi_app/formularioTarea.html", {"form": form})
@@ -82,7 +85,16 @@ def crear_nota(request):
                 contenido=contenido,
             )
             nota.save()
-            return HttpResponse(f"Nota creada: {nota}")
+            messages.success(request, f"¡Nota '{nota.titulo}' creada con éxito!")
+            return redirect('crear-nota')
 
     form = MiNota()
     return render(request, "mi_app/formularioNota.html", {"form": form})
+
+def listar_tareas(request):
+    tareas = Tarea.objects.all()
+    return render(request, "mi_app/listar_tareas.html", {"tareas": tareas})
+
+def listar_notas(request):
+    notas = Nota.objects.all()
+    return render(request, "mi_app/listar_notas.html", {"notas": notas})
