@@ -46,7 +46,7 @@ Para instalar la Aplicación de Agenda, sigue estos pasos:
 **Esquema de base de datos**
 -------------------------
 
-La Aplicación de Agenda utiliza una base de datos PostgreSQL. El esquema de la base de datos se define en el archivo `models.py` e incluye las siguientes tablas:
+La Aplicación de Agenda utiliza una base de datos SQLite. El esquema de la base de datos se define en el archivo `models.py` e incluye las siguientes tablas:
 
 * `contactos`
 * `tareas`
