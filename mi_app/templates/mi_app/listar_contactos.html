@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3>Lista de contactos</h3>
+<form method="GET" action="{% url 'buscar-contacto' %}">
+  <input
+    type="text"
+    name="nombre"
+    placeholder="Buscar contacto..."
+    value="{{ nombre }}"
+  />
+  <button type="submit">Buscar</button>
+</form>
+<ul>
+  {% for contacto in contactos %}
+  <li>{{ contacto }}</li>
+  {% endfor %}
+</ul>
+{% endblock content %}
