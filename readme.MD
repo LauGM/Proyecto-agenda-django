@@ -63,4 +63,8 @@ Las contribuciones son bienvenidas. Si deseas colaborar en la Aplicación de Age
 
 La Aplicación de Agenda está licenciada bajo la Licencia MIT. Consulta el archivo `LICENSE` para obtener más detalles.
 
+**Pre-deploy**
+---------
+[Link a Render.com](https://proyecto-agenda-django.onrender.com/)
+
 ## Laura González Martin
