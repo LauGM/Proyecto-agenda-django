@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-s=0+l=ucmg!b$(nlwqtw+b6fpl2w!-2$)=@4cn8kji#k(cm4k-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://proyecto-agenda-django.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
