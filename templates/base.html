@@ -1,100 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Agenda</title>
     <style>
-        body {
-            font-family: monospace;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to bottom, #455A64, #212121);
-            background-attachment: fixed;
+      body {
+        font-family: monospace;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to bottom, #455a64, #212121);
+        background-attachment: fixed;
+      }
+
+      header {
+        background: linear-gradient(to bottom, #455a64, #2f3f51);
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      header h1 a {
+        color: white;
+        text-decoration: none;
+      }
+
+      header nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      header nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
+
+      header nav ul li {
+        margin-right: 20px;
+        /* border: 1px solid white;
+        border-radius: 3px; */
+        padding: 4px;
+      }
+
+      header nav a {
+        color: #fff;
+        text-decoration: none;
+      }
+
+      main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80vh;
+      }
+
+      footer {
+        background: linear-gradient(to bottom, #455a64, #2f3f51);
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        clear: both;
+      }
+
+      /* Center the content */
+      .container {
+        width: 80%;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      @media (max-width: 768px) {
+        nav ul {
+          flex-direction: column; /* Apila los elementos verticalmente */
+          align-items: stretch; /* Estira los elementos para que ocupen todo el ancho */
         }
-        
-         header {
-            background: linear-gradient(to bottom, #455A64, #2F3F51);
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-            display: flex;
-            justify-content: space-between;
+
+        nav li {
+          width: 100%; /* Asegura que cada elemento de la lista ocupe el ancho completo */
+          text-align: center;
         }
-        
-        header nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+
+        nav li:last-child {
+          border-bottom: none; /* Quita el borde del último elemento */
         }
-        
-        header nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
-        
-        header nav ul li {
-            margin-right: 20px;
-            border: 1px solid white;
-            border-radius: 3px;
-            padding: 4px;
-        }
-        
-        header nav a {
-            color: #fff;
-            text-decoration: none;
-        }
-        
-        main {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 80vh;
-        }
-        
-        footer {
-            background: linear-gradient(to bottom, #455A64, #2F3F51);
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-            clear: both;
-        }
-        
-        /* Center the content */
-        .container {
-            width: 80%;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <h1>Agenda</h1>
-        <nav>
-            <ul>
-                <li><a href="/crear-contacto">Crear contacto</a></li>
-                <li><a href="/crear-nota">Crear nota</a></li>
-                <li><a href="/crear-tarea">Crear tarea</a></li>
-                <li><a href="/listar-contactos">Listar y buscar contactos</a></li>
-                <li><a href="/listar-tareas">Listar tareas</a></li>
-                <li><a href="/listar-notas">Listar notas</a></li>
-            </ul>
-        </nav>
+      <h1><a href="/">📔 Mi Agenda</a></h1>
+      <nav>
+        <ul>
+          <li><a href="/crear-contacto">Crear contacto</a></li>
+          <li><a href="/crear-nota">Crear nota</a></li>
+          <li><a href="/crear-tarea">Crear tarea</a></li>
+          <li><a href="/listar-contactos">Listar y buscar contactos</a></li>
+          <li><a href="/listar-tareas">Listar tareas</a></li>
+          <li><a href="/listar-notas">Listar notas</a></li>
+        </ul>
+      </nav>
     </header>
     <main>
-        <div class="container">
-            {% block content %}
-            {% endblock content %}
-        </div>
+      <div class="container">{% block content %} {% endblock content %}</div>
     </main>
     <footer>
-        <p>&copy; 2025 Agenda - Laura González Martin ❤️</p>
+      <p>&copy; 2025 Agenda - Laura González Martin ❤️</p>
     </footer>
-</body>
+  </body>
 </html>
