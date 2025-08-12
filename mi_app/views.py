@@ -3,6 +3,9 @@ from django.contrib import messages
 from django.http import HttpResponse
 from mi_app.models import Contacto, Tarea, Nota
 from mi_app.forms import MiFormulario, MiTarea, MiNota
+#nuevo
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
+from django.urls import reverse_lazy
 
 
 # Create your views here.
@@ -74,7 +77,12 @@ def crear_tarea(request):
    form = MiTarea()
    return render(request, "mi_app/formularioTarea.html", {"form": form})
 
-def crear_nota(request):
+
+def listar_tareas(request):
+    tareas = Tarea.objects.all()
+    return render(request, "mi_app/listar_tareas.html", {"tareas": tareas})
+
+""" def crear_nota(request):
     if request.method == "POST":
         form = MiNota(request.POST)
         if form.is_valid():
@@ -89,12 +97,42 @@ def crear_nota(request):
             return redirect('crear-nota')
 
     form = MiNota()
-    return render(request, "mi_app/formularioNota.html", {"form": form})
+    return render(request, "mi_app/formularioNota.html", {"form": form}) """
 
-def listar_tareas(request):
-    tareas = Tarea.objects.all()
-    return render(request, "mi_app/listar_tareas.html", {"tareas": tareas})
+""" 
 
 def listar_notas(request):
     notas = Nota.objects.all()
-    return render(request, "mi_app/listar_notas.html", {"notas": notas})
+    return render(request, "mi_app/listar_notas.html", {"notas": notas}) """
+
+# Vistas basadas en clases
+
+class ListarNotas(ListView):
+    model = Nota
+    template_name = 'mi_app/listar_notas.html'
+    context_object_name = 'notas'
+
+class CrearNota(CreateView):
+    model = Nota
+    form_class = MiNota
+    template_name = 'mi_app/formularioNota.html'
+    # si quiero redireccionar despues de crear la nota 
+    success_url = reverse_lazy('listar-notas')
+
+class EditarNota(UpdateView):
+    model = Nota
+    form_class = MiNota
+    template_name = 'mi_app/formularioNota.html'
+    context_object_name = 'nota'
+    success_url = reverse_lazy('listar-notas')
+
+class EliminarNota(DeleteView):
+    model = Nota
+    template_name = 'mi_app/eliminar_nota.html'
+    context_object_name = 'nota'
+    success_url = reverse_lazy('listar-notas')
+
+class VerDetalleNota(DetailView):
+    model = Nota
+    template_name = 'mi_app/ver_detalle_nota.html'
+    context_object_name = 'nota'

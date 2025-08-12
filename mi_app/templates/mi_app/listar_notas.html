@@ -2,9 +2,16 @@
 
 {% block content %}
 <h3>Lista de Notas</h3>
-<ul>
+<section style="display: flex; flex-wrap: wrap; gap: 20px;">
   {% for nota in notas %}
-  <li>{{ nota }}</li>
+  <article style="width: 300px; border: 1px solid #ccc; padding: 10px;">
+    <h3>{{ nota.titulo }}</h3>
+    <div style="display: flex; justify-content: right;">
+      <a style="margin-right: 10px;" href="{% url 'ver-detalle-nota' nota.id %}">👁️</a>
+      <a style="margin-right: 10px;" href="{% url 'editar-nota' nota.id %}">✍🏻</a>
+      <a href="{% url 'eliminar-nota' nota.id %}">🗑️</a>
+    </div>
+  </article>
   {% endfor %}
-</ul>
+</section>
 {% endblock content %}

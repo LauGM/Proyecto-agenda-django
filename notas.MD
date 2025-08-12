@@ -28,5 +28,8 @@ borrar todo de la carpeta migrations excepto __init.py__
 borrar la db
 y volver a hacer el paso anterior
 
-# Para ejecutar el servidor
+# Para ejecutar el servidor activar el entorno virtual (si no estaba activo)
+source venv/bin/activate
+
+# ejecutar
 python3 manage.py runserver
