@@ -13,9 +13,10 @@ class Tarea(models.Model):
     titulo = models.CharField(max_length=50)
     descripcion = models.TextField()
     completada = models.BooleanField(default=False)
+    fecha = models.DateField(auto_now_add=True, null=True, blank=True)
 
     def __str__(self):
-        return f'Titulo: {self.titulo},\nDescripcion: {self.descripcion},\nCompletada: {self.completada}'
+        return f'Titulo: {self.titulo},\nDescripcion: {self.descripcion},\nCompletada: {self.completada}, \nFecha: {self.fecha}'
     
 class Nota(models.Model):
     titulo = models.CharField(max_length=50)

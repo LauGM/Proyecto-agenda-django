@@ -2,9 +2,13 @@
 
 {% block content %}
 <h3>Lista de Tareas</h3>
+{% if tareas %}
 <ul>
   {% for tarea in tareas %}
   <li>{{ tarea }}</li>
   {% endfor %}
 </ul>
+{% else %}
+<p>No hay tareas disponibles.</p>
+{% endif %}
 {% endblock content %}

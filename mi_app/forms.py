@@ -10,6 +10,7 @@ class MiTarea(forms.Form):
     titulo = forms.CharField(max_length=30)
     descripcion = forms.CharField(max_length=100)
     completada= forms.BooleanField(initial=False, required=False)
+    fecha = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
 
 """ class MiNota(forms.Form):
     titulo = forms.CharField(max_length=30)

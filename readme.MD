@@ -22,7 +22,7 @@ La Aplicación de Agenda es una aplicación web construida con Django, diseñada
 	+ Crear y listar tareas
 	+ Marcar tareas como completadas
 * **Gestión de notas**:
-	+ Crear, editar, eliminar y listar notas
+	+ Crear, editar, eliminar, ver detalle y listar notas
 	+ Almacenar notas con títulos, contenido y estado
 
 **Instalación**
