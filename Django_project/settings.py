@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'mi_app',
+    'usuarios',
 ]
 
 MIDDLEWARE = [
@@ -122,3 +123,10 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# configuracion de media para guardar las imagenes de los avatares
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+LOGIN_URL = '/usuarios/login'
+# si intento actualizar un perfil y no estoy logueado, me redirige a login

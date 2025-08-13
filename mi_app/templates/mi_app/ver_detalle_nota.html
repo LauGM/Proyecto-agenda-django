@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Detalle de la nota</h1>
+    <h2>Titulo: {{ nota.titulo }}</h2>
+    <p>Contenido: {{ nota.contenido }}</p>
+    <button onclick="window.history.back()">Volver al listado</button>
+{% endblock content %}

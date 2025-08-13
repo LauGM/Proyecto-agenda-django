@@ -1,0 +1,46 @@
+{% extends 'base.html' %} {% block content %}
+<style>
+  .form-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+</style>
+<h2>Editar Perfil</h2>
+<div class="form-container">
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <fieldset>
+      <legend>Datos de Usuario</legend>
+      {{ user_form.as_p }}
+    </fieldset>
+    <fieldset>
+      <legend>Avatar</legend>
+      {% if user.avatar and user.avatar.imagen %}
+      <img
+        src="{{ user.avatar.imagen.url }}"
+        alt="Avatar de {{ user.username }}"
+        width="100"
+        style="border-radius: 50%; object-fit: cover"
+      />
+      {% else %}
+      <p>No se ha cargado un avatar.</p>
+      {% endif %} {{ avatar_form.as_p }}
+    </fieldset>
+    <button type="submit" name="update_profile" class="btn">Actualizar Perfil y Avatar</button>
+  </form>
+  <hr style="margin: 30px 0" />
+
+  <form method="post">
+    {% csrf_token %}
+    <fieldset>
+      <legend>Cambiar Contraseña</legend>
+      {{ password_form.as_p }}
+    </fieldset>
+    <button type="submit" name="change_password" class="btn btn-secondary">
+      Cambiar Contraseña
+    </button>
+  </form>
+</div>
+{% endblock %}

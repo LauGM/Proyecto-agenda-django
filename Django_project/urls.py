@@ -14,19 +14,25 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path
 from django.urls import include
-from mi_app import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', views.home, name='home'),
-    path('crear-contacto/', views.crear_contacto, name='crear-contacto'),
-    path('crear-tarea/', views.crear_tarea, name='crear-tarea'),
-    path('crear-nota/', views.crear_nota, name='crear-nota'),
-    path('buscar-contacto/', views.buscar_contacto, name='buscar-contacto'),
-    path('listar-contactos/', views.listar_contactos, name='listar-contactos'),
-    path('listar-tareas/', views.listar_tareas, name='listar-tareass'),
-    path('listar-notas/', views.listar_notas, name='listar-notas'),
+    path("admin/", admin.site.urls),
+    path('', include('mi_app.urls')),
+    path('usuarios/', include('usuarios.urls')),
 ]
+
+
+
+""" 
+todas las rutas simples se van a encontrar en la carpeta mi_app
+las rutas de usuario ( registro, login, etc) van a ubicarse em /usuarios/register por ejemplo
+"""
+
+# Esto solo funciona en modo de desarrollo (DEBUG=True)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
