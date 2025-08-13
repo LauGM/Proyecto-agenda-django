@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Perfil</h2>
+{% if user.avatar %}
+    <img src="{{ user.avatar.imagen.url }}" alt="Avatar de {{ user.username }}" width="100">
+{% else %}
+    <p>No se ha cargado un avatar.</p>
+{% endif %}
+<p>Nombre de usuario: {{ user.username }}</p>
+<p>Email: {{ user.email }}</p>
+
+{% endblock content %}

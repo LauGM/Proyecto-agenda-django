@@ -102,13 +102,13 @@
       <h1><a href="/">📔 Agenda de {{user.username|default:"invitado"}}</a></h1>
       <nav>
         <ul>
+          {% if user.is_authenticated %}
           <li><a href="/crear-contacto">Crear contacto</a></li>
           <li><a href="/crear-nota">Crear nota</a></li>
           <li><a href="/crear-tarea">Crear tarea</a></li>
           <li><a href="/listar-contactos">Listar y buscar contactos</a></li>
           <li><a href="/listar-tareas">Listar tareas</a></li>
           <li><a href="/listar-notas">Listar notas</a></li>
-          {% if user.is_authenticated %}
           <li>
             <form method="post" action="{% url 'logout' %}">
               {% csrf_token %}
