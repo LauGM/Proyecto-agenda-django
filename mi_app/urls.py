@@ -12,6 +12,7 @@ urlpatterns = [
     path('buscar-contacto/', views.buscar_contacto, name='buscar-contacto'),
     path('crear-tarea/', views.crear_tarea, name='crear-tarea'),
     path('listar-tareas/', views.listar_tareas, name='listar-tareas'),
+    path('acerca-de/', views.acerca_de, name='acerca-de'),
 
     # Vistas basadas en clases
     path('listar-notas/', views.ListarNotas.as_view(), name='listar-notas'),

@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 class Avatar(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    imagen = models.ImageField(upload_to='avatars/')
+    imagen = models.ImageField(upload_to='avatars/', default='avatars/defaultAvatar.png')
     # python -m pip install Pillow
     # hay que agregar algunas cositas en settings.py de Django project para especificar la carpeta /media que guardara la carpeta /avatars
 

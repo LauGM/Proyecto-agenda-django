@@ -34,7 +34,7 @@
       }
 
       header nav ul {
-        list-style: none;
+        list-style-type: none;
         margin: 0;
         padding: 0;
         display: flex;
@@ -42,14 +42,23 @@
 
       header nav ul li {
         margin-right: 20px;
-        /* border: 1px solid white;
-        border-radius: 3px; */
         padding: 4px;
+        align-content: center;
       }
 
       header nav a {
         color: #fff;
         text-decoration: none;
+      }
+
+      header nav a:hover {
+        color: #ff5722;
+      }
+
+      header nav img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
       }
 
       main {
@@ -103,12 +112,21 @@
       <nav>
         <ul>
           {% if user.is_authenticated %}
-          <li><a href="/crear-contacto">Crear contacto</a></li>
           <li><a href="/crear-nota">Crear nota</a></li>
-          <li><a href="/crear-tarea">Crear tarea</a></li>
-          <li><a href="/listar-contactos">Listar y buscar contactos</a></li>
-          <li><a href="/listar-tareas">Listar tareas</a></li>
           <li><a href="/listar-notas">Listar notas</a></li>
+          <li><a href="/crear-contacto">Crear contacto</a></li>
+          <li><a href="/listar-contactos">Listar y buscar contactos</a></li>
+          <li><a href="/crear-tarea">Crear tarea</a></li>
+          <li><a href="/listar-tareas">Listar tareas</a></li>
+          <li>
+          <a href="/usuarios/profile-update">
+            {% if user.avatar and user.avatar.imagen %}
+            <img src="{{user.avatar.imagen.url}}" alt="{{user.username}}">
+            {% else %}
+            <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="{{ user.username }}">
+            {% endif %}
+          </a>
+          </li>
           <li>
             <form method="post" action="{% url 'logout' %}">
               {% csrf_token %}
@@ -127,6 +145,7 @@
             </form>
           </li>
           {% else %}
+          <li><a href="{% url 'acerca-de' %}">Acerca de mi</a></li>
           <li><a href="{% url 'register' %}">Registro</a></li>
           <li><a href="{% url 'login' %}">Login</a></li>
           {% endif %}

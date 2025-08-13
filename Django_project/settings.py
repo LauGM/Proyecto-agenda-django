@@ -124,5 +124,9 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# configuracion de media para guardar las imagenes de los avatares
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+LOGIN_URL = '/usuarios/login'
+# si intento actualizar un perfil y no estoy logueado, me redirige a login
