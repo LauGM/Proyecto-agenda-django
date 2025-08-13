@@ -4,6 +4,7 @@
 =====================
 
 Una aplicación de agenda integral construida con Django, que incluye gestión de contactos, tareas y notas.
+La aplicacion incluye registo, login y logout de usuarios.
 
 **Descripción general**
 --------------------
@@ -21,7 +22,7 @@ La Aplicación de Agenda es una aplicación web construida con Django, diseñada
 	+ Crear y listar tareas
 	+ Marcar tareas como completadas
 * **Gestión de notas**:
-	+ Crear y listar notas
+	+ Crear, editar, eliminar y listar notas
 	+ Almacenar notas con títulos, contenido y estado
 
 **Instalación**
