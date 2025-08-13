@@ -71,10 +71,13 @@ def crear_tarea(request):
             titulo = form.cleaned_data["titulo"]
             descripcion = form.cleaned_data["descripcion"]
             completada = form.cleaned_data["completada"]
+            fecha = form.cleaned_data["fecha"]
+
             tarea = Tarea.objects.create(
                 titulo=titulo,
                 descripcion=descripcion,
                 completada=completada,
+                fecha=fecha,
             )
             tarea.save()
             messages.success(request, f"¡Tarea '{tarea.titulo}' creada con éxito!")

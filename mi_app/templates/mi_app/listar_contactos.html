@@ -1,6 +1,4 @@
-{% extends 'base.html' %}
-
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 <h3>Lista de contactos</h3>
 <form method="GET" action="{% url 'buscar-contacto' %}">
   <input
@@ -11,9 +9,12 @@
   />
   <button type="submit">Buscar</button>
 </form>
+{% if contactos %}
 <ul>
   {% for contacto in contactos %}
   <li>{{ contacto }}</li>
   {% endfor %}
 </ul>
-{% endblock content %}
+{% else %}
+<p>No hay contactos disponibles.</p>
+{% endif %} {% endblock content %}

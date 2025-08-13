@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import date
 
 # Create your models here.
 class Contacto(models.Model):
@@ -13,7 +14,7 @@ class Tarea(models.Model):
     titulo = models.CharField(max_length=50)
     descripcion = models.TextField()
     completada = models.BooleanField(default=False)
-    fecha = models.DateField(auto_now_add=True, null=True, blank=True)
+    fecha = models.DateField(default=date.today())
 
     def __str__(self):
         return f'Titulo: {self.titulo},\nDescripcion: {self.descripcion},\nCompletada: {self.completada}, \nFecha: {self.fecha}'

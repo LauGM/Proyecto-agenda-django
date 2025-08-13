@@ -13,17 +13,22 @@ La Aplicación de Agenda es una aplicación web construida con Django, diseñada
 
 **Características**
 -----------------
-
+* **Gestión de usuarios**:
+	+ Registrar, loguear y personalizar usuarios con avatar y cambios de perfil
+	+ Realizar logout
 * **Gestión de contactos**:
 	+ Crear, buscar y listar contactos
 	+ Almacenar información de contacto, incluyendo nombre, apellido y correo electrónico
 	+ Buscar y filtrar contactos por nombre.
 * **Gestión de tareas**:
-	+ Crear y listar tareas
+	+ Crear y listar tareas con fecha
 	+ Marcar tareas como completadas
 * **Gestión de notas**:
 	+ Crear, editar, eliminar, ver detalle y listar notas
 	+ Almacenar notas con títulos, contenido y estado
+* **Securizacion de la aplicación**
+* **Acerca de mi**
+	+ Breve reseña sobre mi
 
 **Instalación**
 ------------
