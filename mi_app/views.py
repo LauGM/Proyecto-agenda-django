@@ -50,7 +50,7 @@ def crear_contacto(request):
                 email=email,
             )
             contacto.save()
-            messages.success(request, f"¡Nota '{contacto.nombre} {contacto.apellido}' creado con éxito!")
+            messages.success(request, f"¡Contacto '{contacto.nombre} {contacto.apellido}' creado con éxito!")
             return redirect('crear-contacto')
 
     form = MiFormulario()
